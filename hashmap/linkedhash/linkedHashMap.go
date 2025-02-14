@@ -1,4 +1,4 @@
-package main
+package linkedhash
 
 import "fmt"
 
@@ -88,7 +88,7 @@ func (this *MyLinkedHashMap) Keys() []string {
 	return keyList
 }
 
-func main() {
+func main2() {
 	myMap := Constructor()
 	myMap.Put("a", 1)
 	myMap.Put("b", 2)
