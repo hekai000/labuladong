@@ -37,7 +37,7 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 	}
 	return dummy2.Next
 }
-func deleteDuplicates(head *ListNode) *ListNode {
+func deleteDuplicates3(head *ListNode) *ListNode {
 
 	dummy1 := &ListNode{Val: 101}
 	p, q := dummy1, head
@@ -60,6 +60,21 @@ func deleteDuplicates(head *ListNode) *ListNode {
 
 	}
 	return dummy1.Next
+}
+
+func deleteDuplicates(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	if head.Val != head.Next.Val {
+		head.Next = deleteDuplicates(head.Next)
+		return head
+	}
+	for head.Next != nil && head.Next.Val == head.Val {
+		head = head.Next
+	}
+	return deleteDuplicates(head.Next)
 }
 
 // @lc code=end
